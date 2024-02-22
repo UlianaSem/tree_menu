@@ -1,0 +1,323 @@
+[
+  {
+    "model": "main.menu",
+    "pk": 1,
+    "fields": {
+      "name": "Категории"
+    }
+  },
+  {
+    "model": "main.menu",
+    "pk": 2,
+    "fields": {
+      "name": "Статьи"
+    }
+  },
+  {
+    "model": "main.menu",
+    "pk": 5,
+    "fields": {
+      "name": "Благоустройство города"
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 1,
+    "fields": {
+      "menu": 2,
+      "name": "Научная",
+      "level": 1,
+      "parent": null
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 2,
+    "fields": {
+      "menu": 2,
+      "name": "Развлекательная",
+      "level": 1,
+      "parent": null
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 3,
+    "fields": {
+      "menu": 2,
+      "name": "Частицы",
+      "level": 2,
+      "parent": 1
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 4,
+    "fields": {
+      "menu": 1,
+      "name": "Товары для дома",
+      "level": 1,
+      "parent": null
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 5,
+    "fields": {
+      "menu": 1,
+      "name": "Электроника",
+      "level": 1,
+      "parent": null
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 6,
+    "fields": {
+      "menu": 1,
+      "name": "Телевизоры",
+      "level": 2,
+      "parent": 5
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 7,
+    "fields": {
+      "menu": 1,
+      "name": "Стиральные машинки",
+      "level": 2,
+      "parent": 5
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 8,
+    "fields": {
+      "menu": 1,
+      "name": "Вазы",
+      "level": 2,
+      "parent": 4
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 12,
+    "fields": {
+      "menu": 1,
+      "name": "Вазы ручной работы",
+      "level": 3,
+      "parent": 8
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 13,
+    "fields": {
+      "menu": 1,
+      "name": "Вазы промышленного производства",
+      "level": 3,
+      "parent": 8
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 14,
+    "fields": {
+      "menu": 1,
+      "name": "Ваза Уют",
+      "level": 4,
+      "parent": 13
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 15,
+    "fields": {
+      "menu": 1,
+      "name": "Ваза Забота",
+      "level": 4,
+      "parent": 13
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 16,
+    "fields": {
+      "menu": 1,
+      "name": "Ваза Красота",
+      "level": 4,
+      "parent": 13
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 17,
+    "fields": {
+      "menu": 1,
+      "name": "Ваза Нежность",
+      "level": 4,
+      "parent": 13
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 18,
+    "fields": {
+      "menu": 1,
+      "name": "Ваза",
+      "level": 4,
+      "parent": 12
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 19,
+    "fields": {
+      "menu": 1,
+      "name": "Телевизор LG",
+      "level": 3,
+      "parent": 6
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 20,
+    "fields": {
+      "menu": 1,
+      "name": "Телевизор Huawei",
+      "level": 3,
+      "parent": 6
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 21,
+    "fields": {
+      "menu": 2,
+      "name": "О звездах",
+      "level": 2,
+      "parent": 2
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 22,
+    "fields": {
+      "menu": 2,
+      "name": "Об актерах",
+      "level": 3,
+      "parent": 21
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 23,
+    "fields": {
+      "menu": 2,
+      "name": "О музыкантах",
+      "level": 3,
+      "parent": 21
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 24,
+    "fields": {
+      "menu": 2,
+      "name": "По ту сторону экрана: кто озвучивает голливудских актеров",
+      "level": 4,
+      "parent": 22
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 25,
+    "fields": {
+      "menu": 1,
+      "name": "Ручные",
+      "level": 3,
+      "parent": 7
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 26,
+    "fields": {
+      "menu": 1,
+      "name": "Автоматические",
+      "level": 3,
+      "parent": 7
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 27,
+    "fields": {
+      "menu": 1,
+      "name": "Стиральная машина Haier HW60-BP10919A",
+      "level": 4,
+      "parent": 26
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 28,
+    "fields": {
+      "menu": 1,
+      "name": "Мебель",
+      "level": 2,
+      "parent": 4
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 29,
+    "fields": {
+      "menu": 1,
+      "name": "Корпусная мебель",
+      "level": 3,
+      "parent": 28
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 30,
+    "fields": {
+      "menu": 1,
+      "name": "Столы и стулья",
+      "level": 4,
+      "parent": 29
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 31,
+    "fields": {
+      "menu": 1,
+      "name": "Столы",
+      "level": 5,
+      "parent": 30
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 32,
+    "fields": {
+      "menu": 1,
+      "name": "Стулья",
+      "level": 5,
+      "parent": 30
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 33,
+    "fields": {
+      "menu": 1,
+      "name": "Кухонные столы",
+      "level": 6,
+      "parent": 31
+    }
+  }
+]
