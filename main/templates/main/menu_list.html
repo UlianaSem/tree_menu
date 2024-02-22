@@ -1,11 +1,9 @@
 {% extends 'main/base.html' %}
 
-    {% block content %}
-       {% for object in object_list %}
-          <div class="card-body">
-            <div class="btn-group">
-              <a href="{% url 'main:menu-detail' object.pk %}">{{ object.name }}</a>
-            </div>
-          </div>
-       {% endfor %}
-    {% endblock %}
+{% block content %}
+    {% for object in object_list %}
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link active" href="{% url 'main:menu-detail' object.pk %}" role="button" aria-expanded="false">{{ object.name }}</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}

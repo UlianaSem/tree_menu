@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+{% load main_tags %}
+
+{% block content %}
+    <ul>
+        <li class="nav-item"><a class="nav-link active" href="{% url 'main:menu-detail' object.pk %}" role="button" aria-expanded="false">{{ object.name }}</a></li>
+        <ul>
+            {% draw_menu object.pk item_selected.pk %}
+        </ul>
+    </ul>
+{% endblock %}
