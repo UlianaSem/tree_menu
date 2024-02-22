@@ -74,7 +74,8 @@ def build_answer(items):
 
     for index in range(len(items)):
         template = \
-            f"""<li><a class ="dropdown-item" href="/get_item/{items[index].pk}/">{items[index].name}</a></li>\n"""
+            f"""<li class="nav-item"><a class="nav-link active"
+             href="/get_item/{items[index].pk}/">{items[index].name}</a></li>\n"""
 
         if index == 0:
             string += template
