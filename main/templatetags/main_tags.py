@@ -16,21 +16,24 @@ def draw_menu(menu, item):
     def get_item(point):
         if point == '':
             point = None
-            return [(0, menu_items.filter(parent=point))]
+            return [(0, [i for i in menu_items if i.parent == point])]
 
-        point = menu_items.get(pk=point)
+        point = [i for i in menu_items if i.pk == point][0]
         points = []
 
         while point is not None:
-            points.append((point.pk, menu_items.filter(parent=point)))
-            point = point.parent
+            points.append((point.pk, [i for i in menu_items if i.parent == point]))
 
-            if point is None:
-                points.append((0, menu_items.filter(parent=point)))
+            try:
+                point = [i for i in menu_items if i == point.parent][0]
+            except IndexError:
+                point = None
+                points.append((0, [i for i in menu_items if i.parent == point]))
+                break
 
         return points
 
-    menu_items = Item.objects.filter(menu=menu)
+    menu_items = [item for item in Item.objects.select_related('parent').filter(menu=menu)]
     required_items = get_item(item)
 
     return {
@@ -49,10 +52,11 @@ def sort_answer(items, menu):
 
     for item in reversed(items):
         try:
-            index = answer.index(menu.get(pk=item[0]))
+            element = [i for i in menu if i.pk == item[0]][0]
+            index = answer.index(element)
         except ValueError:
             index = 0
-        except Item.DoesNotExist:
+        except IndexError:
             index = len(answer)
 
         for i in item[1]:
