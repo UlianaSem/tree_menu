@@ -1,6 +1,6 @@
 from django.template import Library
 
-from main.models import Item
+from main.models import Item, Menu
 
 register = Library()
 
@@ -32,11 +32,19 @@ def draw_menu(menu, item):
 
         return points
 
-    menu_items = [item for item in Item.objects.select_related('parent').filter(menu=menu)]
-    required_items = get_item(item)
+    menu_items = [item for item in Item.objects.select_related('parent', 'menu').filter(menu=menu)]
+
+    if menu_items:
+        menu_object = menu_items[0].menu
+        required_items = get_item(item)
+        sorted_required_items = sort_answer(required_items, menu_items)
+    else:
+        sorted_required_items = []
+        menu_object = Menu.objects.get(pk=menu)
 
     return {
-        "menu_items": sort_answer(required_items, menu_items)
+        "menu_items": sorted_required_items,
+        "menu": menu_object
     }
 
 
@@ -67,13 +75,16 @@ def sort_answer(items, menu):
 
 
 @register.simple_tag()
-def build_answer(items):
+def build_answer(items, menu):
     """
     Строит разметку меню
+    :param menu: объект меню
     :param items: пункты меню
     :return: string
     """
-    string = ''
+    string = f"""<ul>\n
+        <li class="nav-item"><a class="nav-link active" href="/menu/{menu.pk}/" 
+        role="button" aria-expanded="false">{menu.name}</a></li>\n"""
 
     for index in range(len(items)):
         template = \
@@ -81,7 +92,7 @@ def build_answer(items):
              href="/get_item/{items[index].pk}/">{items[index].name}</a></li>\n"""
 
         if index == 0:
-            string += template
+            string += ('<ul>\n' + template)
         elif items[index].level > items[index-1].level:
             string += ('<ul>\n' + template)
         elif items[index].level < items[index-1].level:
@@ -89,5 +100,7 @@ def build_answer(items):
             string += (difference + template)
         else:
             string += template
+
+    string += '\n</ul>'
 
     return string
