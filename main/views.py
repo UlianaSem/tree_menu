@@ -17,11 +17,8 @@ class MenuDetailView(DetailView):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
 
-        try:
-            item = request.GET.get('item')
-            context['item_selected'] = Item.objects.get(pk=item)
-        except Item.DoesNotExist:
-            pass
+        item = request.GET.get('item')
+        context['item_selected'] = item
 
         return self.render_to_response(context)
 

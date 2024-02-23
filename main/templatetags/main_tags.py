@@ -14,11 +14,10 @@ def draw_menu(menu, item):
     :return: dict пунктами меню
     """
     def get_item(point):
-        if point == '':
-            point = None
+        if point is None:
             return [(0, [i for i in menu_items if i.parent == point])]
 
-        point = [i for i in menu_items if i.pk == point][0]
+        point = [i for i in menu_items if i.pk == int(point)][0]
         points = []
 
         while point is not None:
