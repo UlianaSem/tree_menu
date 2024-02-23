@@ -14,13 +14,6 @@
     }
   },
   {
-    "model": "main.menu",
-    "pk": 5,
-    "fields": {
-      "name": "Благоустройство города"
-    }
-  },
-  {
     "model": "main.item",
     "pk": 1,
     "fields": {
